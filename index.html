@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The version of Hattie</title>
+	<!-- Load Vue.js framework -->
+	<script src="https://unpkg.com/vue@next"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+
+            background-color: #262632;
+		}
+
+		.container {
+  display: flex;
+  width: 100%;
+}
+
+.image-container {
+  width: 33.33%; /* 1/3 of the container width */
+}
+
+.text-container {
+  width: 66.67%; /* 2/3 of the container width */
+  padding: 0 20px; /* Add some padding to the sides of the text area */
+}
+
+		.intro {
+			background-color: #F8F8F8;
+			padding: 50px 10%;
+			text-align: center;
+            display:  flex;
+		}
+
+        .intro-image {
+            width: 33%;
+        }
+
+        .intro-image img {
+            width: 60%;
+        }
+
+        .intro-text {
+            width: 67%;
+        }
+
+
+		.intro h2 {
+			font-size: 36px;
+			margin-bottom: 20px;
+		}
+
+		.intro p {
+            text-align: justify;
+			font-size: 17px;
+			line-height: 1.5;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.product {
+            background-color: #cbcbd1;
+			padding: 50px 20px;
+			text-align: center;
+		}
+
+		.product h3 {
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+
+		.product p {
+			font-size: 18px;
+			line-height: 1.5;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.product img {
+			max-width: 100%;
+			height: auto;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="app">
+		<div class="intro">
+            <div class="intro-image">
+                <img src="./assets/images/p2.png" alt="Intro Image">
+            </div>
+            <div class="intro-text">
+                <h2>{{ introTitle }}</h2>
+                <p>{{ introText }}</p>
+            </div>
+		</div>
+		<div v-for="(product, index) in products" :key="index" class="product">
+			<h3>{{ product.title }}</h3>
+			<p>{{ product.description }}</p>
+			<img v-if="product.image" :src="product.image" :alt="product.title">
+		</div>
+        <!-- <div class="container"> -->
+            <!-- <div class="image-container">
+              <img src="./assets/images/p2.png" alt="Your Image">
+            </div>
+            <div class="text-container">
+              <h2>Your Heading</h2>
+              <p>Your text goes here...</p>
+            </div> -->
+        <!-- </div> -->
+
+
+	</div>
+
+	<script>
+        // const number = 1;
+		const app = Vue.createApp({
+			data() {
+				return {
+					title: 'Vue 3 Websit998',
+					introTitle: 'Hi! I am Haotian Cao',
+					introText: 'I am a passionate developer. I am good at full-stack web development. My first language is Mandarin, and I can also \ speak \ English, HTML, CSS, JS, Java, SQL, PHP, C#, Dart, Kotlin etc. This website is developed by Vue.js and you can find the code /here/ if you are interested. Below sections are the work i have done. so feel free to browse them. ' ,
+					products: [
+						{
+							title: 'Engineering Heritage Western Australia',
+							description: 'This was an internship project during my studies at UTAS, the aim of which was to help develop the website for the Australian engineering site Tasmania Distribution and to implement the functionality of capturing user addresses and uploading photos.  Related technologies： HTML,Css, JavaScript, SQL and Wikidot',
+							image: './assets/images/engineer.png'
+						},
+						{
+							title: 'VIP Mortgage Tasmania -- AUS Leading',
+							description: 'The following three websites are all commercial use websites and have been developed as a whole following the principles of website operability. related technologies：HTML,Css, JavaScript.',
+							image: './assets/images/VIP1.png'
+                           
+						},
+						{
+							title: 'VIP Mortgage Tasmania -- OZ Design',
+							description: 'The purpose of this website is to develop client booking projects for a design agency and to view the work of the organisation. The website is developed through HTML and Css, Javascript and SQL.',
+							image: './assets/images/VIP2.png'
+                        },
+                        {
+                            title: 'VIP Mortgage Tasmania -- Optwise Group',
+                            description: 'This site is also done using HTML, Css and Javascript. The aim was to develop a customer booking function for the organisation.',
+                            image: './assets/images/VIP3.png'
+                        },
+                        {
+							title: 'Contact Me',
+							description: 'Email: haotianfun@gmail.com',
+                        }
+				]
+			}
+		}
+	})
+
+	app.mount('.app');
+</script>
+</body>
+</html>
